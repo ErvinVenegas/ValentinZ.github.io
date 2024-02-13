@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animación de Te Amo Zaira</title>
+<style>
+    body {
+        margin: 0;
+        background-color: #ffcccc; /* Fondo rosa */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative; /* Para que los corazones se posicionen correctamente */
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column; /* Cambia a disposición vertical */
+        align-items: center;
+        position: relative;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .letter {
+        animation: bounce 0.5s ease-in-out infinite alternate, changeColor 10s infinite; /* Agregamos la animación de cambio de color */
+    }
+
+    @keyframes bounce {
+        from { transform: translateY(0); }
+        to { transform: translateY(-10px); }
+    }
+
+    /* Estilos para el corazón */
+    .heart {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        animation: heartbeat 1s infinite;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .heart:before,
+    .heart:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20px;
+        width: 20px;
+        height: 32px;
+        background-color: red;
+        border-radius: 15px 15px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+    }
+
+    .heart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.5); }
+        100% { transform: scale(1); }
+    }
+
+    /* Animación para el texto */
+    @keyframes slideInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes changeColor {
+        0% {
+            color: red; /* Color inicial */
+        }
+        25% {
+            color: pink; /* Color intermedio 1 */
+        }
+        50% {
+            color: purple; /* Color intermedio 2 */
+        }
+        75% {
+            color: black; /* Color intermedio 3 */
+        }
+        100% {
+            color: red; /* Color final */
+        }
+    }
+
+    .text-container {
+        animation: slideInFromLeft 1s ease-in-out;
+    }
+</style>
+</head>
+<body>
+
+<!-- Corazón -->
+<div class="heart"></div>
+
+<!-- Texto animado -->
+<div class="text-container">
+    <span class="letter">Zaira,</span><br>
+    <span class="letter">Mi dulce Amada,</span><br>
+    <span class="letter">Eres Mi Valentín Sin Medida,</span><br>
+    <span class="letter">Tu Nombre En Mi Alma Grabada,</span><br>
+    <span class="letter">Mi Corazón Solo Late Por Ti.</span><br>
+    <span class="letter">Desde Que llegaste A Mi Vida,</span><br>
+    <span class="letter">El Amor Se Hizo Realidad,</span><br>
+    <span class="letter">Cada Latido Es Una Melodía,</span><br>
+    <span class="letter">Que Solo A Ti Quiere Cantar.</span>
+</div>
+
+</body>
+</html>
